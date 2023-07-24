@@ -20,7 +20,10 @@ class MenuData:
                 recipe_amount = int(row['recipe_amount'])
 
                 # Find or create the dish instance
-                dish = next((d for d in self.dishes if d.name == dish_name), None)
+                dish = next(
+                    (d for d in self.dishes if d.name == dish_name),
+                    None
+                )
                 if dish is None:
                     dish = Dish(dish_name, dish_price)
                     self.dishes.add(dish)
